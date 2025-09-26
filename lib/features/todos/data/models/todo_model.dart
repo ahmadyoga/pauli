@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
 
 part 'todo_model.freezed.dart';
 part 'todo_model.g.dart';

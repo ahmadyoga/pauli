@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter_boilerplate/features/auth/domain/usecases/login_usecase.dart';
+import 'package:g_chords/features/auth/domain/usecases/login_usecase.dart';
 
 import '../../../../helpers/test_mocks.mocks.dart';
 

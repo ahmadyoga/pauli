@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/core/locator/injectable.dart';
-import 'package:flutter_boilerplate/core/utils/result.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
-import 'package:flutter_boilerplate/features/todos/domain/usecases/get_todo_by_id.dart';
+import 'package:g_chords/core/locator/injectable.dart';
+import 'package:g_chords/core/utils/result.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/domain/usecases/get_todo_by_id.dart';
 
 class TodoDetailPage extends StatelessWidget {
   final String todoId;

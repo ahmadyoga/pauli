@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/core/router/app_route_observer.dart';
+import 'package:g_chords/core/router/app_route_observer.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter_boilerplate/features/auth/domain/entities/user.dart';
+import 'package:g_chords/features/auth/domain/entities/user.dart';
 
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';

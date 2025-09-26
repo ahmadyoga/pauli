@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_boilerplate/features/todos/data/models/todo_model.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/data/models/todo_model.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
 
 void main() {
   group('TodoModel', () {

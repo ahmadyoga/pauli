@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
-import 'package:flutter_boilerplate/features/todos/presentation/widgets/todo_item.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/presentation/widgets/todo_item.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

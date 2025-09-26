@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_boilerplate/core/router/app_routes.dart';
-import 'package:flutter_boilerplate/features/auth/domain/entities/user.dart';
-import 'package:flutter_boilerplate/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:g_chords/core/router/app_routes.dart';
+import 'package:g_chords/features/auth/domain/entities/user.dart';
+import 'package:g_chords/features/auth/presentation/bloc/auth_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

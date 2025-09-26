@@ -6,8 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/app.dart';
-import 'package:flutter_boilerplate/core/locator/injectable.dart';
+import 'package:g_chords/app.dart';
+import 'package:g_chords/core/locator/injectable.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

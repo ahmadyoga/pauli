@@ -1,5 +1,5 @@
-import 'package:flutter_boilerplate/core/utils/result.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/core/utils/result.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
 
 abstract class TodoRepository {
   Future<Result<List<Todo>>> getTodos();

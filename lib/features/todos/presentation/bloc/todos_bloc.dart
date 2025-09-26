@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_boilerplate/core/utils/resources.dart';
-import 'package:flutter_boilerplate/core/utils/result.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
-import 'package:flutter_boilerplate/features/todos/domain/usecases/get_todos.dart';
-import 'package:flutter_boilerplate/features/todos/domain/usecases/update_todo.dart';
+import 'package:g_chords/core/utils/resources.dart';
+import 'package:g_chords/core/utils/result.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/domain/usecases/get_todos.dart';
+import 'package:g_chords/features/todos/domain/usecases/update_todo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

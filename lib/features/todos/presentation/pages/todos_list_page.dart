@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_boilerplate/core/locator/injectable.dart';
-import 'package:flutter_boilerplate/core/router/app_routes.dart';
-import 'package:flutter_boilerplate/core/utils/enum.dart';
-import 'package:flutter_boilerplate/features/todos/presentation/bloc/todos_bloc.dart';
-import 'package:flutter_boilerplate/features/todos/presentation/widgets/todo_item.dart';
-import 'package:flutter_boilerplate/features/todos/presentation/widgets/todos_empty.dart';
+import 'package:g_chords/core/locator/injectable.dart';
+import 'package:g_chords/core/router/app_routes.dart';
+import 'package:g_chords/core/utils/enum.dart';
+import 'package:g_chords/features/todos/presentation/bloc/todos_bloc.dart';
+import 'package:g_chords/features/todos/presentation/widgets/todo_item.dart';
+import 'package:g_chords/features/todos/presentation/widgets/todos_empty.dart';
 
 class TodosListView extends StatelessWidget {
   const TodosListView({super.key});

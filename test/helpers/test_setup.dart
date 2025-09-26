@@ -1,7 +1,7 @@
 import 'package:mockito/mockito.dart';
-import 'package:flutter_boilerplate/core/utils/result.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
-import 'package:flutter_boilerplate/features/todos/data/models/todo_model.dart';
+import 'package:g_chords/core/utils/result.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/data/models/todo_model.dart';
 
 /// Setup helpers for tests
 /// Call this function in setUpAll() of test files that need dummy values

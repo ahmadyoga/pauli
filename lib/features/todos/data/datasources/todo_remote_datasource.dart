@@ -1,5 +1,5 @@
-import 'package:flutter_boilerplate/core/network/api_client.dart';
-import 'package:flutter_boilerplate/features/todos/data/models/todo_model.dart';
+import 'package:g_chords/core/network/api_client.dart';
+import 'package:g_chords/features/todos/data/models/todo_model.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class TodoRemoteDataSource {

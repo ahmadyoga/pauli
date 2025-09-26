@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
 
 void main() {
   group('Todo Entity', () {

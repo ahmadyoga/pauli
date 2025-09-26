@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/features/home/presentation/pages/main_shell.dart';
+import 'package:g_chords/features/home/presentation/pages/main_shell.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/features/home/presentation/pages/profile_screen.dart';
+import 'package:g_chords/features/home/presentation/pages/profile_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

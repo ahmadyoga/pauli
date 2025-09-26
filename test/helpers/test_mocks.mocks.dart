@@ -7,35 +7,35 @@ import 'dart:async' as _i8;
 
 import 'package:dio/dio.dart' as _i2;
 import 'package:flutter_bloc/flutter_bloc.dart' as _i18;
-import 'package:flutter_boilerplate/core/network/api_client.dart' as _i9;
-import 'package:flutter_boilerplate/core/services/local_storage_service.dart'
+import 'package:g_chords/core/network/api_client.dart' as _i9;
+import 'package:g_chords/core/services/local_storage_service.dart'
     as _i7;
-import 'package:flutter_boilerplate/core/utils/base_usecase.dart' as _i22;
-import 'package:flutter_boilerplate/core/utils/resources.dart' as _i5;
-import 'package:flutter_boilerplate/core/utils/result.dart' as _i11;
-import 'package:flutter_boilerplate/features/auth/domain/entities/user.dart'
+import 'package:g_chords/core/utils/base_usecase.dart' as _i22;
+import 'package:g_chords/core/utils/resources.dart' as _i5;
+import 'package:g_chords/core/utils/result.dart' as _i11;
+import 'package:g_chords/features/auth/domain/entities/user.dart'
     as _i20;
-import 'package:flutter_boilerplate/features/auth/domain/usecases/login_usecase.dart'
+import 'package:g_chords/features/auth/domain/usecases/login_usecase.dart'
     as _i19;
-import 'package:flutter_boilerplate/features/auth/domain/usecases/logout_usecase.dart'
+import 'package:g_chords/features/auth/domain/usecases/logout_usecase.dart'
     as _i21;
-import 'package:flutter_boilerplate/features/auth/presentation/bloc/auth_bloc.dart'
+import 'package:g_chords/features/auth/presentation/bloc/auth_bloc.dart'
     as _i6;
-import 'package:flutter_boilerplate/features/todos/data/datasources/todo_remote_datasource.dart'
+import 'package:g_chords/features/todos/data/datasources/todo_remote_datasource.dart'
     as _i14;
-import 'package:flutter_boilerplate/features/todos/data/models/todo_model.dart'
+import 'package:g_chords/features/todos/data/models/todo_model.dart'
     as _i3;
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart'
+import 'package:g_chords/features/todos/domain/entities/todo.dart'
     as _i12;
-import 'package:flutter_boilerplate/features/todos/domain/repositories/todo_repository.dart'
+import 'package:g_chords/features/todos/domain/repositories/todo_repository.dart'
     as _i10;
-import 'package:flutter_boilerplate/features/todos/domain/usecases/get_todo_by_id.dart'
+import 'package:g_chords/features/todos/domain/usecases/get_todo_by_id.dart'
     as _i16;
-import 'package:flutter_boilerplate/features/todos/domain/usecases/get_todos.dart'
+import 'package:g_chords/features/todos/domain/usecases/get_todos.dart'
     as _i15;
-import 'package:flutter_boilerplate/features/todos/domain/usecases/update_todo.dart'
+import 'package:g_chords/features/todos/domain/usecases/update_todo.dart'
     as _i17;
-import 'package:flutter_boilerplate/features/todos/presentation/bloc/todos_bloc.dart'
+import 'package:g_chords/features/todos/presentation/bloc/todos_bloc.dart'
     as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i13;

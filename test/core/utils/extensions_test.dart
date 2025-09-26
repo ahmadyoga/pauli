@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/core/utils/extentions.dart';
+import 'package:g_chords/core/utils/extentions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

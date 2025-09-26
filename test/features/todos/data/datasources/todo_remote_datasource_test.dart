@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_boilerplate/features/todos/data/datasources/todo_remote_datasource.dart';
-import 'package:flutter_boilerplate/features/todos/data/models/todo_model.dart';
+import 'package:g_chords/features/todos/data/datasources/todo_remote_datasource.dart';
+import 'package:g_chords/features/todos/data/models/todo_model.dart';
 import '../../../../helpers/test_mocks.mocks.dart';
 import '../../../../helpers/test_setup.dart';
 

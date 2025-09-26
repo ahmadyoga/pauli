@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_boilerplate/core/error/failures.dart';
-import 'package:flutter_boilerplate/core/utils/result.dart';
-import 'package:flutter_boilerplate/features/todos/data/datasources/todo_remote_datasource.dart';
-import 'package:flutter_boilerplate/features/todos/data/models/todo_model.dart';
-import 'package:flutter_boilerplate/features/todos/domain/entities/todo.dart';
-import 'package:flutter_boilerplate/features/todos/domain/repositories/todo_repository.dart';
+import 'package:g_chords/core/error/failures.dart';
+import 'package:g_chords/core/utils/result.dart';
+import 'package:g_chords/features/todos/data/datasources/todo_remote_datasource.dart';
+import 'package:g_chords/features/todos/data/models/todo_model.dart';
+import 'package:g_chords/features/todos/domain/entities/todo.dart';
+import 'package:g_chords/features/todos/domain/repositories/todo_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: TodoRepository)

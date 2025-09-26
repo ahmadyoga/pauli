@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_boilerplate/core/utils/resources.dart';
-import 'package:flutter_boilerplate/features/auth/domain/entities/user.dart';
-import 'package:flutter_boilerplate/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:flutter_boilerplate/features/home/presentation/pages/home_screen.dart';
+import 'package:g_chords/core/utils/resources.dart';
+import 'package:g_chords/features/auth/domain/entities/user.dart';
+import 'package:g_chords/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:g_chords/features/home/presentation/pages/home_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import '../../../../../helpers/test_mocks.mocks.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_boilerplate/features/auth/domain/entities/user.dart';
+import 'package:g_chords/features/auth/domain/entities/user.dart';
 
 void main() {
   group('User Entity', () {

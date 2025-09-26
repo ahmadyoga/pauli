@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_boilerplate/core/extensions/datetime.dart';
+import 'package:g_chords/core/extensions/datetime.dart';
 import 'package:logger/logger.dart';
 
 class AppLogger {

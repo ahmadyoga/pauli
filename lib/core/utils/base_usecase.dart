@@ -1,4 +1,4 @@
-import 'package:flutter_boilerplate/core/utils/resources.dart';
+import 'package:g_chords/core/utils/resources.dart';
 
 abstract class BaseUseCase<T, P> {
   Future<Resource<T>> call(P params);
