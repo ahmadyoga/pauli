@@ -1,0 +1,5 @@
+package_rename_config:
+  android:
+    app_name: "G Chords" # (String) The display name of the android app
+    package_name: "com.gchords" # (String) The package name of the android app
+    override_old_package: "com.example.flutter_boilerplate"

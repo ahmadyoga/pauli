@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: g-chords
+  description: Flutter application - G Chords
+  package_name: g_chords
+  annotations:
+    github.com/project-slug: Devweave/g-chords
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - flutter
+    - mobile
+    - cross-platform
+  links:
+    - url: https://github.com/Devweave/g-chords
+      title: Repository
+      icon: github
+spec:
+  type: mobile-app
+  lifecycle: development
+  owner: user:guest
+  system: mobile-apps
+  providesApis: []
+  consumesApis: []
+  dependsOn: []
