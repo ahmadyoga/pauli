@@ -91,23 +91,6 @@ class WebFrameWrapper extends StatelessWidget {
                               ),
                             ),
 
-                            // Notch / Dynamic Island
-                            Positioned(
-                              top: 10,
-                              left: 0,
-                              right: 0,
-                              child: Center(
-                                child: Container(
-                                  width: 100,
-                                  height: 24,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                ),
-                              ),
-                            ),
-
                             // Home indicator
                             Positioned(
                               bottom: 6,
