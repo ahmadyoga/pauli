@@ -50,14 +50,6 @@ coverage/
 api-keys.json
 !api-keys.example.json
 
-# Generated files
-*.g.dart
-*.freezed.dart
-*.gr.dart
-*.config.dart
-**/*.g.dart
-**/*.freezed.dart
-
 # Database
 *.db
 *.sqlite
