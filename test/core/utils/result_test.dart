@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:g_chords/core/utils/result.dart';
-import 'package:g_chords/core/error/failures.dart';
+import 'package:pauli/core/utils/result.dart';
+import 'package:pauli/core/error/failures.dart';
 
 void main() {
   group('Result', () {

@@ -2,8 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: g-chords
-  description: Flutter application - G Chords
-  package_name: g_chords
+  description: Flutter application - Pauli
+  package_name: pauli
   annotations:
     github.com/project-slug: Devweave/g-chords
     backstage.io/techdocs-ref: dir:.

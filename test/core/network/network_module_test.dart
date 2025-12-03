@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:g_chords/core/network/network_module.dart';
+import 'package:pauli/core/network/network_module.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

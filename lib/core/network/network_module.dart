@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:g_chords/core/utils/constants.dart';
+import 'package:pauli/core/utils/constants.dart';
 import 'package:injectable/injectable.dart';
 
 @module

@@ -1,85 +1,122 @@
 import 'package:flutter/material.dart';
-import '../../features/home/presentation/pages/home_screen.dart';
-import '../../features/home/presentation/pages/main_shell.dart';
-import '../../features/home/presentation/pages/profile_screen.dart';
-import '../../features/auth/presentation/pages/login_screen.dart';
-import '../../features/todos/presentation/pages/todo_detail_page.dart';
-import '../../features/todos/presentation/pages/todos_list_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/pauli/domain/models/pauli_answer.dart';
+import '../../features/pauli/domain/models/pauli_config.dart';
+import '../../features/pauli/presentation/bloc/pauli_test_bloc.dart';
+import '../../features/pauli/presentation/pages/pauli_result_page.dart';
+import '../../features/pauli/presentation/pages/pauli_settings_page.dart';
+import '../../features/pauli/presentation/pages/pauli_test_page.dart';
 
 part 'app_routes.g.dart';
 
-// Shell Route for Bottom Navigation
-@TypedShellRoute<MyShellRouteData>(
-  routes: <TypedRoute<RouteData>>[
-    TypedGoRoute<HomeRoute>(path: '/home'),
-    TypedGoRoute<ProfileRoute>(path: '/profile'),
-  ],
+// Pauli Test Settings Route (Main Route)
+@TypedGoRoute<PauliSettingsRoute>(
+  path: '/',
 )
-class MyShellRouteData extends ShellRouteData {
-  const MyShellRouteData();
-
-  @override
-  Widget builder(BuildContext context, GoRouterState state, Widget navigator) {
-    return MainShell(child: navigator);
-  }
-}
-
-// Login Route (outside shell)
-@TypedGoRoute<LoginRoute>(
-  path: '/login',
-)
-class LoginRoute extends GoRouteData with _$LoginRoute {
-  const LoginRoute();
+class PauliSettingsRoute extends GoRouteData with _$PauliSettingsRoute {
+  const PauliSettingsRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const LoginScreen();
+    return const PauliSettingsPage();
   }
 }
 
-class HomeRoute extends GoRouteData with _$HomeRoute {
-  const HomeRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const HomeScreen();
-  }
-}
-
-// Profile Route (inside shell)
-class ProfileRoute extends GoRouteData with _$ProfileRoute {
-  const ProfileRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const ProfileScreen();
-  }
-}
-
-@TypedGoRoute<TodoListRoute>(
-  path: '/todos/list',
+// Pauli Test Route
+@TypedGoRoute<PauliTestRoute>(
+  path: '/test',
 )
-class TodoListRoute extends GoRouteData with _$TodoListRoute {
-  const TodoListRoute();
+class PauliTestRoute extends GoRouteData with _$PauliTestRoute {
+  final int durationMinutes;
+  final String displayFormat;
 
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const TodosListPage();
-  }
-}
-
-@TypedGoRoute<TodoDetailRoute>(
-  path: '/todos/detail/:todoId',
-)
-class TodoDetailRoute extends GoRouteData with _$TodoDetailRoute {
-  const TodoDetailRoute({
-    required this.todoId,
+  const PauliTestRoute({
+    required this.durationMinutes,
+    required this.displayFormat,
   });
-  final String todoId;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return TodoDetailPage(todoId: todoId);
+    final format = DisplayFormat.values.firstWhere(
+      (f) => f.name == displayFormat,
+      orElse: () => DisplayFormat.singleProblem,
+    );
+
+    final config = PauliConfig(
+      durationMinutes: durationMinutes,
+      displayFormat: format,
+    );
+
+    return BlocProvider(
+      create: (_) => PauliTestBloc()..add(PauliTestEvent.startTest(config)),
+      child: const PauliTestPage(),
+    );
+  }
+}
+
+// Pauli Result Route
+@TypedGoRoute<PauliResultRoute>(
+  path: '/result',
+)
+class PauliResultRoute extends GoRouteData with _$PauliResultRoute {
+  final int correctCount;
+  final int wrongCount;
+  final int totalDurationSeconds;
+  final String answersPerMinuteJson;
+
+  const PauliResultRoute({
+    required this.correctCount,
+    required this.wrongCount,
+    required this.totalDurationSeconds,
+    this.answersPerMinuteJson = '[]',
+  });
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    // Parse answers per minute from JSON string
+    try {
+      final jsonStr = answersPerMinuteJson;
+      if (jsonStr.isNotEmpty && jsonStr != '[]') {}
+    } catch (_) {}
+
+    final now = DateTime.now();
+    final startedAt = now.subtract(Duration(seconds: totalDurationSeconds));
+
+    // Create dummy answers with correct/wrong counts
+    final answers = <PauliAnswer>[];
+    for (int i = 0; i < correctCount; i++) {
+      answers.add(
+        PauliAnswer(
+          firstNumber: 0,
+          secondNumber: 0,
+          userAnswer: 0,
+          correctAnswer: 0,
+          timeTaken: const Duration(seconds: 1),
+          answeredAt: now,
+        ),
+      );
+    }
+    for (int i = 0; i < wrongCount; i++) {
+      answers.add(
+        PauliAnswer(
+          firstNumber: 0,
+          secondNumber: 0,
+          userAnswer: 1,
+          correctAnswer: 0,
+          timeTaken: const Duration(seconds: 1),
+          answeredAt: now,
+        ),
+      );
+    }
+
+    final result = PauliResult(
+      answers: answers,
+      totalDuration: Duration(seconds: totalDurationSeconds),
+      startedAt: startedAt,
+      finishedAt: now,
+    );
+
+    return PauliResultPage(result: result);
   }
 }

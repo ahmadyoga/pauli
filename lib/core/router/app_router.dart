@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: '/login',
+    initialLocation: '/',
     routes: $appRoutes,
     redirect: (context, state) {
       Logger().i(
