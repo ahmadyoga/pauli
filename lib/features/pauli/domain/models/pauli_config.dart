@@ -37,7 +37,7 @@ sealed class PauliConfig with _$PauliConfig {
   const factory PauliConfig({
     @Default(5) int durationMinutes,
     @Default(DisplayFormat.singleProblem) DisplayFormat displayFormat,
-    @Default(3) int columnCount, // For column format
-    @Default(15) int rowsPerColumn, // For column format
+    @Default(8) int columnCount,
+    @Default(15) int rowsPerColumn,
   }) = _PauliConfig;
 }

@@ -152,10 +152,14 @@ class _ColumnFormatViewState extends State<ColumnFormatView> {
     final cellKey = '$colIndex-$rowIndex';
     final answeredCell = widget.answeredCells[cellKey];
     final isAnswered = answeredCell != null;
+    final userAnswer = answeredCell?.userAnswer.toString() ?? '';
     final isCorrect = answeredCell?.isCorrect ?? false;
 
     // Get the next problem for the second number (if exists)
     final hasNextNumber = rowIndex < column.length - 1;
+
+    final isSecondsNumber =
+        hasNextNumber && rowIndex - 1 == widget.currentRow && isCurrentColumn;
 
     return SizedBox(
       height: _itemHeight,
@@ -163,13 +167,28 @@ class _ColumnFormatViewState extends State<ColumnFormatView> {
         mainAxisSize: MainAxisSize.min,
         children: [
           // First Number (top)
-          Center(
-            child: Text(
-              '${problem.firstNumber}',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: isCurrentCell ? FontWeight.bold : FontWeight.w500,
-                color: isAnswered ? AppColors.neutral400 : AppColors.neutral800,
+          Container(
+            width: 40,
+            height: 36,
+            decoration: BoxDecoration(
+              color: isCurrentCell || isSecondsNumber
+                  ? AppColors.neutral100
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(6),
+              border: isCurrentCell || isSecondsNumber
+                  ? Border.all(color: AppColors.neutral800, width: 2)
+                  : null,
+            ),
+            child: Center(
+              child: Text(
+                '${problem.firstNumber}',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: isCurrentCell ? FontWeight.bold : FontWeight.w500,
+                  color: isCurrentCell || isSecondsNumber
+                      ? AppColors.neutral800
+                      : AppColors.neutral400,
+                ),
               ),
             ),
           ),
@@ -217,7 +236,7 @@ class _ColumnFormatViewState extends State<ColumnFormatView> {
                     ),
                     child: Center(
                       child: Text(
-                        isAnswered ? (isCorrect ? '✓' : '✗') : '?',
+                        isAnswered ? userAnswer : '?',
                         style: TextStyle(
                           fontSize: isAnswered ? 12 : 16,
                           fontWeight: FontWeight.bold,

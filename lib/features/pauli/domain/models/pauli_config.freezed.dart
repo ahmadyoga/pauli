@@ -270,7 +270,7 @@ class _PauliConfig implements PauliConfig {
   const _PauliConfig(
       {this.durationMinutes = 5,
       this.displayFormat = DisplayFormat.singleProblem,
-      this.columnCount = 3,
+      this.columnCount = 8,
       this.rowsPerColumn = 15});
 
   @override

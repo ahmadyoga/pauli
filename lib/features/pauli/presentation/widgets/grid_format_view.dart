@@ -119,6 +119,8 @@ class _GridFormatViewState extends State<GridFormatView> {
           final isCorrect = answeredCell?.isCorrect ?? false;
           final isCurrent =
               colIndex == widget.currentColumn && rowIndex == widget.currentRow;
+          final isSecondsNumber = colIndex == widget.currentColumn &&
+              rowIndex == widget.currentRow + 1;
           final hasNextRow = rowIndex < column.length - 1;
 
           return _buildGridCell(
@@ -127,6 +129,7 @@ class _GridFormatViewState extends State<GridFormatView> {
             colIndex,
             rowIndex,
             isCurrent,
+            isSecondsNumber,
             isAnswered,
             isCorrect,
             hasNextRow,
@@ -143,6 +146,7 @@ class _GridFormatViewState extends State<GridFormatView> {
     int colIndex,
     int rowIndex,
     bool isCurrent,
+    bool isSecondsNumber,
     bool isAnswered,
     bool isCorrect,
     bool hasNextRow,
@@ -160,9 +164,11 @@ class _GridFormatViewState extends State<GridFormatView> {
               width: 40,
               height: 36,
               decoration: BoxDecoration(
-                color: isCurrent ? AppColors.neutral100 : Colors.transparent,
+                color: isCurrent || isSecondsNumber
+                    ? AppColors.neutral100
+                    : Colors.transparent,
                 borderRadius: BorderRadius.circular(6),
-                border: isCurrent
+                border: isCurrent || isSecondsNumber
                     ? Border.all(color: AppColors.neutral800, width: 2)
                     : null,
               ),
@@ -180,6 +186,7 @@ class _GridFormatViewState extends State<GridFormatView> {
               ),
             ),
 
+            const SizedBox(height: 2),
             // Plus and answer indicator (between numbers)
             if (hasNextRow)
               Padding(
