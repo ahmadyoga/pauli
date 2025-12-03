@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$PauliConfig {
   int get durationMinutes;
   DisplayFormat get displayFormat;
-  int get columnCount; // For column format
+  int get columnCount;
   int get rowsPerColumn;
 
   /// Create a copy of PauliConfig
@@ -282,7 +282,6 @@ class _PauliConfig implements PauliConfig {
   @override
   @JsonKey()
   final int columnCount;
-// For column format
   @override
   @JsonKey()
   final int rowsPerColumn;
