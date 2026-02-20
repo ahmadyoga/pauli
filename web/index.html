@@ -72,14 +72,161 @@
       font-size: 16px;
       color: rgba(255, 255, 255, 0.7);
     }
+
+    /* Anti-debugging overlay */
+    .debug-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 999999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+    }
+
+    .debug-overlay.active {
+      display: flex;
+    }
+
+    .debug-message {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 40px 60px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .debug-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .debug-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .debug-subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
   </style>
 </head>
 <body>
+  <!-- Anti-debugging overlay -->
+  <div class="debug-overlay" id="debugOverlay">
+    <div class="debug-message">
+      <div class="debug-icon">⏸️</div>
+      <div class="debug-title">App Paused</div>
+      <div class="debug-subtitle">Developer tools detected</div>
+    </div>
+  </div>
+
   <div class="loading" id="loading">
     <div class="loading-spinner"></div>
     <div class="loading-text">Memuat Tes Pauli...</div>
   </div>
   <script>
+    // Anti-debugging detection
+    (function() {
+      const devtools = {
+        isOpen: false,
+        orientation: null
+      };
+
+      const threshold = 160;
+      let lastCheck = Date.now();
+      
+      const emitEvent = (isOpen, orientation) => {
+        window.dispatchEvent(new CustomEvent('devtoolschange', {
+          detail: {
+            isOpen: isOpen,
+            orientation: orientation
+          }
+        }));
+      };
+
+      const checkDevTools = () => {
+        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        const orientation = widthThreshold ? 'vertical' : 'horizontal';
+
+        if (!(heightThreshold && widthThreshold) &&
+            ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) ||
+             widthThreshold || heightThreshold)) {
+          if (!devtools.isOpen || devtools.orientation !== orientation) {
+            emitEvent(true, orientation);
+            devtools.isOpen = true;
+            devtools.orientation = orientation;
+          }
+        } else {
+          if (devtools.isOpen) {
+            emitEvent(false, null);
+            devtools.isOpen = false;
+            devtools.orientation = null;
+          }
+        }
+      };
+
+      // Additional detection using console
+      const element = new Image();
+      Object.defineProperty(element, 'id', {
+        get: function() {
+          devtools.isOpen = true;
+          emitEvent(true, null);
+          return 'devtools';
+        }
+      });
+
+      // Check multiple times
+      setInterval(checkDevTools, 500);
+
+      // Debugger detection
+      setInterval(() => {
+        const before = Date.now();
+        debugger;
+        const after = Date.now();
+        if (after - before > 100) {
+          devtools.isOpen = true;
+          emitEvent(true, null);
+        }
+      }, 1000);
+
+      // Console check
+      setInterval(() => {
+        console.log('%c', element);
+        console.clear();
+      }, 1000);
+
+      // Update UI based on devtools state
+      window.addEventListener('devtoolschange', (e) => {
+        const overlay = document.getElementById('debugOverlay');
+        if (e.detail.isOpen) {
+          overlay.classList.add('active');
+        } else {
+          overlay.classList.remove('active');
+        }
+      });
+
+      // Initial check
+      checkDevTools();
+    })();
+
     window.addEventListener('flutter-first-frame', function() {
       var loading = document.getElementById('loading');
       if (loading) {
